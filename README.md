@@ -22,7 +22,7 @@ This is the skeleton for a blog app
 To run the project,
 - Navigate to the root directory of the project `cd Blog-app`
 - run `rails s`
--Follow the paths mentioned in #1
+-Follow the paths mentioned in [#1](https://github.com/Kakalanp/Blog-app/pull/1)
 
  ## Authors:
 
