@@ -6,4 +6,5 @@
 <div>
 <p>Latest posts from <%=@user.name%>:</p>
 <%= render partial: 'recent_post', collection: @recent_posts %>
+<a href="/users/<%=@user.id%>/posts/">See all posts from <%=@user.name%></a>
 </div>
