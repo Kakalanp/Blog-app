@@ -1,0 +1,5 @@
+<div onclick="window.location='/users/<%=@user.id%>/posts/<%=recent_post.id%>'">
+    <h3>Post #<%=recent_post.id%></h3>
+    <p><%=recent_post.text%></p>
+    <span>Comments: <%=recent_post.commentsCounter%>, Likes:<%=recent_post.likesCounter%></span>
+</div>

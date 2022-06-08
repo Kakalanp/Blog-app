@@ -1,1 +1,9 @@
-<h1> Here is the data from user id: <%= @id %> </h1>
+<%= render 'user', user: @user %>
+<div><p>Bio:
+
+<%=@user.bio%>
+</p></div>
+<div>
+<p>Latest posts from <%=@user.name%>:</p>
+<%= render partial: 'recent_post', collection: @recent_posts %>
+</div>
