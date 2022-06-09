@@ -1,1 +1,12 @@
-<h1>This is the post: <%=@id%> from the user: <%=@user_id%> </h1>
+<div>
+  <div>
+    <div>
+      <h3><%=@post.title%></h3> by: <%=@user.name%>
+      <p>Comments: <%=@post.commentsCounter%>, Likes:<%=@post.likesCounter%></p>
+    </div>
+    <p><%=@post.text%></p>
+  </div>
+  <div>
+    <%= render partial: 'comment', collection: @post.comments.order(created_at: :desc) %>
+  </div>
+</div>
