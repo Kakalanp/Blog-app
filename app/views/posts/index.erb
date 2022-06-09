@@ -1,1 +1,6 @@
-<h1>Here is a list of posts from a given user id<h1>
+<%= render 'users/user', user: @user %>
+
+<div>
+<span>All posts from <%=@user.name%>:</span>
+<%= render partial: 'post', collection: @posts, user: @user %>
+</div>

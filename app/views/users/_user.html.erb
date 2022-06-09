@@ -1,0 +1,7 @@
+<div onclick="window.location='/users/<%=user.id%>'">
+  <%= image_tag (user.photo), height: '115', width: '115' %>
+  <div>
+    <h2> <%=user.name%></h2>
+    <span>Number of posts: <%= user.postsCounter%> </span>
+  </div>
+</div>
