@@ -1,4 +1,4 @@
-<h1>Add a new post <%=@user.name%>!</h1>
+<h1>Add a new post<%=' ' + @user.name unless @user.nil?%>!</h1>
 
 <%= form_with model: @post, url: user_posts_path do |form|%>
 

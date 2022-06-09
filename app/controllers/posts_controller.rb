@@ -17,7 +17,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    redirect_to action: 'index'
+    if @post.save
+      redirect_to action: 'index'
+    else
+      render :new
+    end
   end
 
   private
