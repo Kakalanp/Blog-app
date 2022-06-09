@@ -1,5 +1,5 @@
 <div onclick="window.location='/users/<%=@user.id%>/posts/<%=recent_post.id%>'">
     <h3><%=recent_post.title%></h3>
-    <p><%=recent_post.text%></p>
+    <p><%=truncate(recent_post.text)%></p>
     <span>Comments: <%=recent_post.commentsCounter%>, Likes:<%=recent_post.likesCounter%></span>
 </div>
