@@ -1,0 +1,17 @@
+<h1>Add a new post<%=' ' + @user.name unless @user.nil?%>!</h1>
+
+<%= form_with model: @post, url: user_posts_path do |form|%>
+
+  <%= form.label :title%>
+  <%= form.text_field :title%>
+
+  <br>
+  <br>
+
+  <%= form.label :text%>
+  <%= form.text_area :text%>
+  
+  <br>
+  <br>
+  <%= form.submit%>
+<%end%>

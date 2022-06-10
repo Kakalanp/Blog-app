@@ -1,5 +1,9 @@
 <%= render 'users/user', user: @user %>
+<br>
 
+<%= button_to "Create a post", new_user_post_path, method: :get %>
+
+<br>
 <div>
 <span>All posts from <%=@user.name%>:</span>
 <%= render partial: 'post', collection: @posts, user: @user %>
