@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @user = User.find(User.pluck(:id).sample) #gets a random user
+    @user = User.find(User.pluck(:id).sample) # gets a random user
     @comment = @user.comments.new(comment_params)
 
     if @comment.save
