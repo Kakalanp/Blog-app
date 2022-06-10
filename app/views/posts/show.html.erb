@@ -7,6 +7,9 @@
     <p><%=@post.text%></p>
   </div>
 
+<%= button_to "Like", user_post_likes_path(user_id:@user.id, post_id:@post.id), :method=>:post %>
+ <%#= button_to "Like", :controller => 'likes_controller', :action => 'create' %>
+
   <%= form_with model: Comment.new, url: user_post_comments_path(@user.id, @post.id) do |form| %>
     <%= form.text_field :text %>
     <%= form.submit %>
