@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Post was successfully created'
     else
       render :new
     end
