@@ -6,6 +6,9 @@
     </div>
     <p><%=@post.text%></p>
   </div>
+
+  <% render 'comments/add_comment', post: @post %>
+
   <div>
     <%= render partial: 'comment', collection: @post.comments.order(created_at: :desc) %>
   </div>
