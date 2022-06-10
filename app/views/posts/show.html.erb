@@ -7,7 +7,10 @@
     <p><%=@post.text%></p>
   </div>
 
-  <% render 'comments/add_comment', post: @post %>
+  <%= form_with model: Comment.new, url: user_post_comments_path(@user.id, @post.id) do |form| %>
+    <%= form.text_field :text %>
+    <%= form.submit %>
+  <% end %>
 
   <div>
     <%= render partial: 'comment', collection: @post.comments.order(created_at: :desc) %>
