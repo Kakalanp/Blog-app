@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to action: 'index'
+      redirect_to root_path
     else
       render :new
     end
@@ -27,6 +27,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :user_id)
+    params.require(:post).permit(:title, :text, :user_id).reverse_merge({ user_id: params['user_id'] })
   end
 end
