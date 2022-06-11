@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'Users views', type: :system do
-  describe 'Index' do
+RSpec.describe 'users views', type: :system do
+  describe 'index' do
     it 'shows the correct content' do
       visit users_path
-      expect(page).to have_content('Here is a list of users')
+      expect(page).to have_content('Here is a list of users:')
     end
   end
 
@@ -12,7 +12,7 @@ RSpec.describe 'Users views', type: :system do
     it 'shows the correct content' do
       id = 1
       visit user_path(id)
-      expect(page).to have_content("Here is the data from user id: #{id}")
+      expect(page).to have_content('Latest posts from ')
     end
   end
 end

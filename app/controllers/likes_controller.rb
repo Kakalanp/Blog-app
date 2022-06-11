@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     @user = User.find(User.pluck(:id).sample) # gets a random user
     @like = @user.likes.new(like_params)
 
-    redirect_to root_path if @like.save
+    redirect_to root_path, notice: 'Like succesfully added' if @like.save
   end
 
   private

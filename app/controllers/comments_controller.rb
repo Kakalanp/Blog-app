@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @comment = @user.comments.new(comment_params)
 
     if @comment.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Comment was successfully created'
     else
-      render :new
+      render :new, alert: 'Comment was not created'
     end
   end
 
