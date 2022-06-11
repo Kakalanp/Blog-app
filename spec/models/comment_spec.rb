@@ -18,7 +18,7 @@ RSpec.describe 'comment', type: :model do
     it 'correctly uses update_comments_counter' do
       @comment.save
       @comment.update_comments_counter
-      expect(comment.post.commentsCounter).to eql(0)
+      expect(@comment.post.commentsCounter).to eql(1)
     end
   end
 end
