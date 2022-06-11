@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to root_path, notice: 'Comment was successfully created'
     else
-      render :new
+      render :new, alert: 'Comment was not created'
     end
   end
 
