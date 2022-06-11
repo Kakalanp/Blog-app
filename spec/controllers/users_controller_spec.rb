@@ -1,18 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe 'Users requests', type: :request do
-  describe 'Index method' do
-    it 'returns the users list on the root' do
+RSpec.describe 'users_controller', type: :request do
+  describe 'index action' do
+    it 'returns the correct list of users' do
       get root_path
-      expect(response).to have_http_status(200)
-    end
+      expect(response).to have_http_status(:ok)
 
-    it 'returns the users list on normal path' do
       get users_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
 
-    it 'renders the correct template in both' do
+    it 'renders the correct template' do
       get users_path
       expect(response).to render_template(:index)
 
@@ -21,11 +19,11 @@ RSpec.describe 'Users requests', type: :request do
     end
   end
 
-  describe 'Show method' do
+  describe 'show action' do
     before(:example) { get user_path(id: 1) }
 
     it 'returns the data from the correct user' do
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'renders the correct template' do

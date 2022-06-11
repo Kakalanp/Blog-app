@@ -8,7 +8,7 @@ RSpec.describe 'posts_controller', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'renders the correct template for a list of posts for a given user' do
+    it 'renders the correct template' do
       expect(response).to render_template(:index)
     end
   end
