@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
+RSpec.describe 'comment', type: :model do
   before(:example) { @comment = Comment.new(text: 'test', post_id: 1, user_id: 1) }
 
   describe 'validation' do
