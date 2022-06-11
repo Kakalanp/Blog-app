@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'posts_view', type: :system do
+RSpec.describe 'posts views', type: :system do
   describe 'index' do
     it 'shows the correct content' do
       visit user_posts_path(user_id: 1)
