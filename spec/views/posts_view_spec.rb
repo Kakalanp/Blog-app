@@ -1,19 +1,79 @@
 require 'rails_helper'
 
-RSpec.describe 'posts views', type: :system do
-  describe 'index' do
-    it 'shows the correct content' do
-      visit user_posts_path(user_id: 1)
-      expect(page).to have_content('All posts from ')
-    end
+RSpec.describe 'Posts index', type: :feature do
+
+  it 'shows user profile picture.' do
+    expect(page).to have_selector('img')
   end
 
-  describe 'show' do
-    it 'shows the correct content' do
-      user_id = 1
-      id = 2
-      visit user_post_path(user_id, id)
-      expect(page).to have_content('by: ')
-    end
+  it "shows the user's username." do
+    expect(page).to have_selector('h2')
+  end
+
+  it 'shows number of posts' do
+    expect(page).to have_content('Number of posts:')
+  end
+
+  it "shows post's title." do
+    expect(page).to have_selector('h3')
+  end
+
+  it "shows post's body." do
+    expect(page).to have_selector('p')
+  end
+
+  it 'I can see the first comments on a post.' do
+    expect(page).to have_content('DELETE COMMENT')
+  end
+
+  it 'I can see how many comments a post has.' do
+    expect(page).to have_content('Comments:')
+  end
+
+  it 'I can see how many likes a post has.' do
+    expect(page).to have_content('Likes:')
+  end
+
+  it "When I click on a post, it redirects me to that post's show page." do
+    click_on 'Post #1'
+    expect(current_path).to eq('/users/1/posts/1')
+  end
+end
+
+RSpec.describe 'Post show', type: :feature do
+  before :each do
+    visit new_user_session_path
+    fill_in 'Email', with: 'hola@hola.com'
+    fill_in 'Password', with: 'mex420'
+    click_button 'Log in'
+    visit '/users/1/posts/1'
+  end
+
+  it "I can see the post's title." do
+    expect(page).to have_content('Post #1')
+  end
+
+  it 'I can see who wrote the post.' do
+    expect(page).to have_content('Esteban')
+  end
+
+  it 'I can see how many comments it has.' do
+    expect(page).to have_content('Comments: 0')
+  end
+
+  it 'I can see how many likes it has.' do
+    expect(page).to have_content('Likes: 0')
+  end
+
+  it 'I can see the post body.' do
+    expect(page).to have_content('This is my first post')
+  end
+
+  it 'I can see the username of each commentor.' do
+    expect(page).to have_content('Joaquin')
+  end
+
+  it 'I can see the comment each commentor left.' do
+    expect(page).to have_content('This is my first comment')
   end
 end
