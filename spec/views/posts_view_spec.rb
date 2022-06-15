@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts index', type: :feature do
-
   it 'shows user profile picture.' do
     expect(page).to have_selector('img')
   end
@@ -35,38 +34,31 @@ RSpec.describe 'Posts index', type: :feature do
   end
 
   it "When I click on a post, it redirects me to that post's show page." do
-    click_on 'Post #1'
-    expect(current_path).to eq('/users/1/posts/1')
+    link = page.find(:css, 'div[onclick="window.location=\'/users/1/posts/1\'"]')
+    link.click
+    expect(page).to have_current_path('/users/1/posts/1')
   end
 end
 
 RSpec.describe 'Post show', type: :feature do
-  before :each do
-    visit new_user_session_path
-    fill_in 'Email', with: 'hola@hola.com'
-    fill_in 'Password', with: 'mex420'
-    click_button 'Log in'
-    visit '/users/1/posts/1'
+  it "shows post's title." do
+    expect(page).to have_selector('h3')
   end
 
-  it "I can see the post's title." do
-    expect(page).to have_content('Post #1')
+  it 'shows the post author.' do
+    expect(page).to have_content('by:')
   end
 
-  it 'I can see who wrote the post.' do
-    expect(page).to have_content('Esteban')
+  it 'shows how many comments it has.' do
+    expect(page).to have_content('Comments:')
   end
 
-  it 'I can see how many comments it has.' do
-    expect(page).to have_content('Comments: 0')
+  it 'shows how many likes it has.' do
+    expect(page).to have_content('Likes:')
   end
 
-  it 'I can see how many likes it has.' do
-    expect(page).to have_content('Likes: 0')
-  end
-
-  it 'I can see the post body.' do
-    expect(page).to have_content('This is my first post')
+  it "shows post's body." do
+    expect(page).to have_selector('p')
   end
 
   it 'I can see the username of each commentor.' do
