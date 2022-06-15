@@ -1,1 +1,1 @@
-<p><%= comment.user.name %>: <%= comment.text %> </p>
+<p><%= comment.user.name %>: <%= comment.text %> </p> <% if can? :destroy, comment %><%= button_to "DELETE COMMENT", user_post_comment_path(user_id:@user.id, post_id:@post.id, id: comment.id), :method=>:delete %><%end%>

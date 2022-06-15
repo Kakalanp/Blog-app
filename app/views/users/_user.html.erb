@@ -1,7 +1,7 @@
 <div onclick="window.location='/users/<%=user.id%>'">
   <%= image_tag (user.photo), height: '115', width: '115' if user.photo? %>
   <div>
-    <h2> <%=user.name%></h2>
+    <h2><%=user.name%> ( <%= user.email %> <%= user.role if user.role == 'admin' %> )</h2>
     <span>Number of posts: <%= user.postsCounter%> </span>
   </div>
 </div>

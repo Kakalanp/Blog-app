@@ -1,7 +1,6 @@
 class LikesController < ApplicationController
   def create
-    @user = User.find(User.pluck(:id).sample) # gets a random user
-    @like = @user.likes.new(like_params)
+    @like = current_user.likes.new(like_params)
 
     redirect_to root_path, notice: 'Like succesfully added' if @like.save
   end

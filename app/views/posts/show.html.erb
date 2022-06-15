@@ -7,8 +7,7 @@
     <p><%=@post.text%></p>
   </div>
 
-<%= button_to "Like", user_post_likes_path(user_id:@user.id, post_id:@post.id), :method=>:post %>
- <%#= button_to "Like", :controller => 'likes_controller', :action => 'create' %>
+  <%= button_to "Like", user_post_likes_path(user_id:@user.id, post_id:@post.id), :method=>:post %>
 
   <%= form_with model: Comment.new, url: user_post_comments_path(@user.id, @post.id) do |form| %>
     <%= form.text_field :text %>
@@ -17,5 +16,11 @@
 
   <div>
     <%= render partial: 'comment', collection: @post.comments.order(created_at: :desc) %>
+  </div>
+
+  <div>
+    <% if can? :destroy, comment %>
+      <%= button_to "DELETE POST", user_post_path(user_id:@user.id, post_id:@post.id), :method=>:delete %>
+    <%end%>
   </div>
 </div>
