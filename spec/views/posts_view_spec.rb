@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts index', type: :feature do
-  before :each do 
+  before :each do
     visit user_posts_path(user_id: 1)
   end
 
@@ -45,6 +45,9 @@ RSpec.describe 'Posts index', type: :feature do
 end
 
 RSpec.describe 'Post show', type: :feature do
+  before :each do
+    visit user_post_path(user_id: 1, id: 1)
+  end
   it "shows post's title." do
     expect(page).to have_selector('h3')
   end
