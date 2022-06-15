@@ -67,7 +67,7 @@ RSpec.describe 'Users views tests', type: :system do
       visit user_path(id: 1)
       link = page.find(:css, 'a[href="/users/1/posts/"]')
       link.click
-      expect(page).to have_current_path('/users/1/posts')
+      expect(page).to have_current_path('/users/1/posts/')
     end
   end
 end

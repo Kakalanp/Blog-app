@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts index', type: :feature do
+  before :each do 
+    visit user_posts_path(user_id: 1)
+  end
+
   it 'shows user profile picture.' do
     expect(page).to have_selector('img')
   end
@@ -22,7 +26,7 @@ RSpec.describe 'Posts index', type: :feature do
   end
 
   it 'I can see the first comments on a post.' do
-    expect(page).to have_content('DELETE COMMENT')
+    expect(page).to have_selector('form')
   end
 
   it 'I can see how many comments a post has.' do
@@ -33,7 +37,7 @@ RSpec.describe 'Posts index', type: :feature do
     expect(page).to have_content('Likes:')
   end
 
-  it "When I click on a post, it redirects me to that post's show page." do
+  it 'redirects to post show on click' do
     link = page.find(:css, 'div[onclick="window.location=\'/users/1/posts/1\'"]')
     link.click
     expect(page).to have_current_path('/users/1/posts/1')
