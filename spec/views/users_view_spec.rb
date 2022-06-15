@@ -58,8 +58,7 @@ RSpec.describe 'Users views tests', type: :system do
 
     it 'redirects to post show on click' do
       visit user_path(id: 1)
-      link = page.find(:css, 'div[onclick="window.location=\'/users/1/posts/1\'"]')
-      link.click
+      click_on 'My first post'
       expect(page).to have_current_path('/users/1/posts/1')
     end
 

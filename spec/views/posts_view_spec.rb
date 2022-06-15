@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts index', type: :feature do
-  before :each do 
+  before :each do
     visit user_posts_path(user_id: 1)
   end
 
@@ -38,13 +38,16 @@ RSpec.describe 'Posts index', type: :feature do
   end
 
   it 'redirects to post show on click' do
-    link = page.find(:css, 'div[onclick="window.location=\'/users/1/posts/1\'"]')
-    link.click
+    click_on 'My first post'
     expect(page).to have_current_path('/users/1/posts/1')
   end
 end
 
 RSpec.describe 'Post show', type: :feature do
+  before :each do
+    visit '/users/1/posts/1'
+  end
+
   it "shows post's title." do
     expect(page).to have_selector('h3')
   end
@@ -70,6 +73,6 @@ RSpec.describe 'Post show', type: :feature do
   end
 
   it 'I can see the comment each commentor left.' do
-    expect(page).to have_content('This is my first comment')
+    expect(page).to have_content('This is a comment')
   end
 end
