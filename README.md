@@ -24,12 +24,22 @@ To run the project,
 - run `rails s`
 -Follow the paths mentioned in [#1](https://github.com/Kakalanp/Blog-app/pull/1)
 
- ## Authors:
+## Runnig tests
+- run `rspec`
+
+## Authors:
 
 ### 👤 Joaquin G.L. Zanetti
 - GitHub: [@Kakalanp](https://github.com/Kakalanp)
 - Twitter: [@LeccaJoaquin](https://twitter.com/LeccaJoaquin)
 - LinkedIn: [Joaquín Garrido Lecca Zanetti](https://www.linkedin.com/in/joaquin-garrido-lecca-zanetti/)
+
+👤 **Edgar Esteban Muñoz Alba**
+
+- GitHub: [@estebanmual](https://github.com/estebanmual)
+- Twitter: [@estebanmual](https://twitter.com/estebanmual)
+- Instagram: [@estebanmual](https://instagram.com/estebanmual)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/estebanmual)
 
  ## 🤝 Contributing
 
