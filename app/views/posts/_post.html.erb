@@ -1,5 +1,6 @@
 <div>
   <%= render 'users/recent_post', recent_post: post %>
+  <% @post = post %>
   <div>
     <%= render partial: 'comment', collection: post.send(:most_recent_comments) %>
   </div>
