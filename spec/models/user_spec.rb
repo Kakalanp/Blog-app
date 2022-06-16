@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'user', type: :model do
-
   describe 'validation' do
     it 'correctly validates fields' do
       user = User.new(name: 'Joaquin', email: 'test@test.com', password: 'password')

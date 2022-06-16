@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'post', type: :model do
-
   describe 'validation' do
-
     it 'correctly validates fields' do
       post = Post.new(title: 'test', text: 'test', user_id: 1, commentsCounter: 0, likesCounter: 0)
       post.save
@@ -16,7 +14,7 @@ RSpec.describe 'post', type: :model do
 
     it 'correctly validates length' do
       title = 'F' * 251
-      post = Post.new(title: title, text: 'test', user_id: 1, commentsCounter: 0, likesCounter: 0)
+      post = Post.new(title:, text: 'test', user_id: 1, commentsCounter: 0, likesCounter: 0)
       post.save
       expect(post).to_not be_valid
     end
