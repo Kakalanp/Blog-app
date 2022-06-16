@@ -17,8 +17,8 @@ RSpec.describe 'like', type: :model do
   describe 'methods' do
     it 'correctly uses update_like_counter' do
       @like.save
-      @like.update_like_counter
-      expect(@like.post.likesCounter).to eql(1)
+      @like.send(:update_like_counter)
+      expect(@like.post.likesCounter).to eql(2)
     end
   end
 end
